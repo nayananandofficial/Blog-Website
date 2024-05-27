@@ -1,0 +1,10 @@
+<%- include('../partials/header') %>
+<h1>Delete Post</h1>
+<p>Are you sure you want to delete this post?</p>
+<h2><%= post.title %></h2>
+<p><%= post.content %></p>
+<form action="/delete/<%= post.id %>" method="POST">
+    <button type="submit">Delete</button>
+</form>
+<a href="/post/<%= post.id %>">Cancel</a>
+<%- include('../partials/footer') %>
