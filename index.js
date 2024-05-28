@@ -64,7 +64,7 @@ app.get('/delete/:id', (req, res) => {
 
 app.post('/delete/:id', (req, res) => {
     const postId = req.params.id;
-    posts = posts.filter(post => post.id !== parseInt(postId));
+    const posts = posts.filter(post => post.id !== parseInt(postId));
     res.redirect('/');
 });
 
