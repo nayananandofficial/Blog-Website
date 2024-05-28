@@ -4,13 +4,12 @@
     <p>No posts yet!</p>
 <% } else { %>
     <ul>
-        <% posts.forEach((post, index) => { %>
+        <% posts.forEach((post) => { %>
             <li>
-                <h2><a href="/post/<%= index %>"><%= post.title %></a></h2>
-    
+                <h2><a href="/post/<%= post.id %>"><%= post.title %></a></h2>
+                <p><%= post.content.substring(0, 100) %>...</p>
             </li>
         <% }) %>
     </ul>
 <% } %>
-
 <%- include('../partials/footer') %>
