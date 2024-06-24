@@ -11,8 +11,6 @@ app.use(express.static('public'));
 //Set EJS as templating engine
 app.set('view engine', 'ejs');
 let posts = [];
-const post = '';
-const postId = '';
 
 // Routes
 app.get('/', (req, res) => {
@@ -24,7 +22,7 @@ app.get('/create', (req, res) => {
 });
 
 app.post('/create', (req, res) => {
-    post = {
+    const post = {
         id: posts.length, //assigning unique id for each post
         title: req.body.title,
         content: req.body.content
@@ -34,15 +32,15 @@ app.post('/create', (req, res) => {
 });
 
 app.get('/post/:id', (req, res) => {
-    postId = req.params.id;
-    post = posts.find(post => post.id === parseInt(postId));
+    const postId = req.params.id;
+    const post = posts.find(post => post.id === parseInt(postId));
     res.render('pages/post', { post: post });
 });
 
 //to edit the blog post
 app.get('/edit/:id', (req, res) => {
-    postId = req.params.id;
-    post = posts.find(post => post.id === parseInt(postId));
+    const postId = req.params.id;
+    const post = posts.find(post => post.id === parseInt(postId));
     res.render('pages/edit', { post: post });
 });
 
@@ -59,7 +57,7 @@ app.post('/edit/:id', (req, res) => {
 
 //delete post
 app.get('/delete/:id', (req, res) => {
-    postId = req.params.id;
+    const postId = req.params.id;
     const post = posts.find(post => post.id === parseInt(postId));
     res.render('pages/delete', { post: post });
 });
