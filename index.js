@@ -45,7 +45,7 @@ app.get('/edit/:id', (req, res) => {
 });
 
 app.post('/edit/:id', (req, res) => {
-    postId = req.params.id;
+    const postId = req.params.id;
     const updatedPost = {
         id: parseInt(postId),
         title: req.body.title,
@@ -63,7 +63,7 @@ app.get('/delete/:id', (req, res) => {
 });
 
 app.post('/delete/:id', (req, res) => {
-    postId = req.params.id;
+    const postId = req.params.id;
     posts = posts.filter(post => post.id !== parseInt(postId));
     res.redirect('/');
 });
